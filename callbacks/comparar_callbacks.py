@@ -203,10 +203,10 @@ def gerar_card_img(jogador_nome):
     card = template.copy()
     draw = ImageDraw.Draw(card)
 
-    font_path = "C:/Windows/Fonts/arialbd.ttf"
+    font_path = "fonts/DejaVuSans.ttf"
     font_giga = ImageFont.truetype(font_path, 120)
     font_big = ImageFont.truetype(font_path, 90)
-    font_small = ImageFont.truetype(font_path, 28)
+    font_small = ImageFont.truetype(font_path, 30)
     font_xsmall = ImageFont.truetype(font_path, 24)
 
     player = Image.open("static/assets/icone.png").convert("RGBA").resize((500, 500))
@@ -257,15 +257,15 @@ def gerar_card_img(jogador_nome):
 
     bbox = draw.textbbox((0, 0), jogador_nome, font=font_big)
     x_centro = (card.width - (bbox[2] - bbox[0])) // 2
-    draw.text((x_centro, 755), jogador_nome, font=font_big, fill="black")
+    draw.text((x_centro, 735), jogador_nome, font=font_big, fill="black")
 
     bbox = draw.textbbox((0, 0), str(overall), font=font_giga)
     x_centro = (card.width - (bbox[2] - bbox[0])) // 2
-    draw.text((x_centro, 55), str(overall), font=font_giga, fill="#D3AF37")
+    draw.text((x_centro, 75), str(overall), font=font_giga, fill="#D3AF37")
 
-    bbox = draw.textbbox((0, 0), "Overall KPI", font=font_xsmall)
+    bbox = draw.textbbox((0, 0), "OVERALL KPI", font=font_small)
     x_centro = (card.width - (bbox[2] - bbox[0])) // 2
-    draw.text((x_centro, 35), "Overall KPI", font=font_xsmall, fill="white")
+    draw.text((x_centro, 35), "OVERALL KPI", font=font_small, fill="white")
 
     bbox = draw.textbbox((0, 0), posicao_extenso, font=font_small)
     x_centro = (card.width - (bbox[2] - bbox[0])) // 2
